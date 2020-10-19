@@ -2,56 +2,56 @@ package codigo;
 
 public class Articulo {
 	
-	//Declaración de los atributos del objeto Articulo
-	private int existencia;
-	private String nombre, marca;
-	private double precio;
-	
-	//Método Constructor
-	public Articulo(int existencia, String nombre, String marca, double precio) {
-		this.existencia = existencia;
-		this.nombre = nombre;
-		this.marca = marca;
-		this.precio = precio;
-	}
+    //Declaración de los atributos del objeto Articulo
+    private int existencia;
+    private String nombre, marca;
+    private double precio;
 
-	//toString
-	@Override
-	public String toString() {
-		return "Articulo [cantidad=" + existencia + ", nombre=" + nombre + ", marca=" + marca + ", precio=" + precio
-				+ "]";
-	}
+    //Método Constructor
+    public Articulo(int existencia, String nombre, String marca, double precio) {
+        this.existencia = existencia;
+	this.nombre = nombre;
+	this.marca = marca;
+	this.precio = precio;
+    }
 
-	//Getters y Setters
-	public int getExistencia() {
-		return existencia;
-	}
+    //toString
+    @Override
+    public String toString() {
+        return "Articulo [cantidad=" + existencia + ", nombre=" + nombre + ", marca=" + marca + ", precio=" + precio + "]";
+    }
 
-	public void setCantidad(int cantidad) {
-		this.existencia = cantidad;
-	}
+    //Getters y Setters
+    public int getExistencia() {
+        return existencia;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public void setCantidad(int cantidad) {
+        this.existencia = cantidad;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public String getMarca() {
-		return marca;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setMarca(String marca) {
-		this.marca = marca;
-	}
+    public String getMarca() {
+        return marca;
+    }
 
-	public double getPrecio() {
-		return precio;
-	}
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
 
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+    
 }
