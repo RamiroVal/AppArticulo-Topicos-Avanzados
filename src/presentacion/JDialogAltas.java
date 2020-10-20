@@ -8,12 +8,13 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import persistencia.ManejaTablaH;
 import persistencia.GuardaMarca;
 import negocio.EventosAltas;
+
+import LibTexto.*;
 
 public class JDialogAltas extends JDialog{
 	
@@ -21,7 +22,6 @@ public class JDialogAltas extends JDialog{
     private JTextField txtCodigo, txtDescripcion, txtExistencia, txtPrecio;
     private JButton btnSalir, /*btnConsultar,*/ btnGuardar;
     private JComboBox cmbMarcar;
-    private JLabel lblError;
     private ManejaTablaH manejaTabla;
     private JCheckBox chkSiempreExistencia;
 	
@@ -45,25 +45,27 @@ public class JDialogAltas extends JDialog{
         chkSiempreExistencia = new JCheckBox("Siempre en existencia"); //Se crea un JCheckBox paara indicar si el articulo siempre tiene que estar disponible o no 
 		
 	EventosAltas manejador = new EventosAltas(this);
-	txtCodigo.addKeyListener(manejador); //Agrega un manejador KeyEvent al txtCodigo
-	txtExistencia.addKeyListener(manejador); //Agrega un manejador de eventos de teclado al txtExistencia
-	txtPrecio.addKeyListener(manejador); //Agrega un manejador de eventos de teclado al txtPrecio
 	btnGuardar.addActionListener(manejador); //Agrega un manejador de eventos de acción al btnGuardar
 	btnSalir.addActionListener(manejador); //Agrega un manejador de eventos de acción al btnSalir
         chkSiempreExistencia.addItemListener(manejador); //Agrega un manejador de eventos de item al chkSiempreExistencia
 		
 	this.manejaTabla = manejaTabla; //Asignación de objeto de tipo ManejaTablaH para hacer referencia
+        
+        CharLimit clCodigo = new CharLimit(txtCodigo, 3, CharLimit.SOLO_NUMEROS);
+        CharLimit clDescripcion = new CharLimit(txtDescripcion, 25);
+        CharLimit clExistencia = new CharLimit(txtExistencia, 5, CharLimit.SOLO_NUMEROS);
+        CharLimit clPrecio = new CharLimit(txtPrecio, 8, CharLimit.BOOLEANOS);
 		
-	add(new JLabel("Clave:")); //Se crea un objeto de tipo JLabel con la leyenda "Clave:" y se añade al JDialog
+	add(new LabelDefault("Clave:")); //Se crea un objeto de tipo JLabel con la leyenda "Clave:" y se añade al JDialog
 	add(txtCodigo); //Se añade el objeto txtCodigo al JDialog
-	add(new JLabel("Nombre:")); //Se ccrea un objeto de tipo JLabel con la leyenda "Descripción:" y se añade al JDialog
+	add(new LabelDefault("Nombre:")); //Se ccrea un objeto de tipo JLabel con la leyenda "Descripción:" y se añade al JDialog
 	add(txtDescripcion); //Se añade el objeto txtDescripcion al JDialog
-	add(new JLabel("Existencia:")); //Se agrega un JLabel con la leyenda "Existencia:"
+	add(new LabelDefault("Existencia:")); //Se agrega un JLabel con la leyenda "Existencia:"
 	add(txtExistencia); //Se agrega el txtExistencia al JDialog
         add(chkSiempreExistencia); //Se agrega el chkSiempreExistencia al JDialog
-	add(new JLabel("Precio:")); //Se agrega un JLabel con la leyenda "Precio:" al JDialog
+	add(new LabelDefault("Precio:")); //Se agrega un JLabel con la leyenda "Precio:" al JDialog
 	add(txtPrecio); //Se agrega el objeto txtPrecio al JDialog
-	add(new JLabel("Seleccione Marca a Agregar:")); //Se crea un objeto de tipo JLabel con la leyenda "Seleccione Marca a Agregar" y se añade al JDialog
+	add(new LabelDefault("Seleccione Marca a Agregar:")); //Se crea un objeto de tipo JLabel con la leyenda "Seleccione Marca a Agregar" y se añade al JDialog
 	add(cmbMarcar); //Se añade el objeto cmbMarca al JDialog
 	add(btnGuardar); //Se añade el objeto btnGuardar al JDialog
 	//add(btnConsultar); //Se añade el objeto btnConsultar al JDialog
@@ -119,10 +121,6 @@ public class JDialogAltas extends JDialog{
 
     public void setTxtDescripcion(String txtDescripcion) {
 	this.txtDescripcion.setText(txtDescripcion);
-    }
-	
-    public void setLblError(String mensaje) {
-	this.lblError.setText(mensaje);
     }
 	
     public void setTxtPrecio(String mensaje) {

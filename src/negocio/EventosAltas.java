@@ -1,21 +1,17 @@
 package negocio;
 
 import java.awt.Color;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 
 import presentacion.JDialogAltas;
 
-public class EventosAltas extends KeyAdapter implements ActionListener, ItemListener{
+public class EventosAltas implements ActionListener, ItemListener{
 	
     //Declaracion de elementos
     private JDialogAltas dialog;
@@ -26,47 +22,7 @@ public class EventosAltas extends KeyAdapter implements ActionListener, ItemList
         this.dialog = dialog;
         selec = "No";
     }
-	
-    //Método manejador de eventos de teclas
-    public void keyTyped(KeyEvent e) {
-
-        if (e.getSource() == dialog.getTxtCodigo()) { //Si se comienza a teclear en el objeto txtCodigo de la clase JDialogAltas
-            if (Character.isAlphabetic(e.getKeyChar()) || Character.isWhitespace(e.getKeyChar()) || Character.isLetter(e.getKeyChar())) { //Si lo que se escribe es un caracter alfabético, espacio en blanco y letra
-                e.consume(); //Se ignora
-                Toolkit.getDefaultToolkit().beep(); //Envía un sonido de atención
-                dialog.getTxtCodigo().setBorder(new LineBorder(Color.RED)); //Colorea el borde del JTextField de color rojo
-            }else { //Si no
-                dialog.getTxtCodigo().setBorder(new LineBorder(null)); //Restaura el color del JLabel txtCodigo
-            }
-
-            if (dialog.getTxtCodigo().getText().length() == 3) { //Si el texto ingresado al JLabel txtCodigo es igual a 3
-                e.consume(); //Se ignora lo que el usuario quiera seguir ingresando
-                Toolkit.getDefaultToolkit().beep(); //Envía un sonido de atención
-            }
-        }
-
-        if (e.getSource() == dialog.getTxtExistencia()) { //Si se comienza a teclear en el objeto txtExistencia de la clase JDialogAltas
-            if (!Character.isDigit(e.getKeyChar())) { //Si lo que se ingresa no es un dígito
-                e.consume(); //Se ignora
-                Toolkit.getDefaultToolkit().beep(); //Se envía un sonido de atención
-		dialog.getTxtExistencia().setBorder(new LineBorder(Color.RED)); //Colorea el borde del JTextField txtExistencia de color rojo
-            }else { //Si no
-		dialog.getTxtExistencia().setBorder(new LineBorder(null)); //Restaura el color del JLabel txtExistencia
-            }
-	}
-
-	if (e.getSource() == dialog.getTxtPrecio()) { //Si se comienza a teclear en el objeto txtPrecio de la clase JDialogAltas
-            if (Character.isAlphabetic(e.getKeyChar()) || Character.isWhitespace(e.getKeyChar()) || Character.isLetter(e.getKeyChar())) { //Si lo que se escribe es un caracter alfabético, espacio en blanco y letra
-                e.consume(); //Se ignora
-		Toolkit.getDefaultToolkit().beep(); //Se envía un sonido de atención
-		dialog.getTxtPrecio().setBorder(new LineBorder(Color.RED)); //Colorea el borde del JTextField txtPrecio de color rojo
-            }else { //Si no
-		dialog.getTxtPrecio().setBorder(new LineBorder(null)); //Restaura el color del JLabel txtPrecio
-            }
-	}
-
-    }
-	
+    
     @Override
     public void actionPerformed(ActionEvent e) {	
         if (e.getSource() == dialog.getBtnGuardar()) { //Detecta si el objeto btnGuardar fue presionado
@@ -94,6 +50,7 @@ public class EventosAltas extends KeyAdapter implements ActionListener, ItemList
                     }
 		}catch (Exception error) {
                     JOptionPane.showMessageDialog(dialog, "Error en el precio", "Error", JOptionPane.ERROR_MESSAGE); //Si ocurre un error, mas especificamente, si el usuario agrega 2 puntos en el txtPrecio muestra mensaje de error
+                    dialog.getTxtPrecio().setBorder(new LineBorder(Color.RED));
                 }
             }
 			

@@ -1,10 +1,10 @@
 package presentacion;
 
+import LibTexto.*;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JFrame;
 
@@ -15,7 +15,6 @@ public class JDialogMarcas extends JDialog{
 	
     private JTextField txtIdMarca, txtNombre, txtDatosProveedor;
     private JButton btnSalir, btnGuardar;
-    private JLabel lblID, lblNombre, lblDatos;
     private GuardaMarca dalMarcas;
 	
     public JDialogMarcas(JFrame frame, GuardaMarca marcas) {
@@ -35,24 +34,26 @@ public class JDialogMarcas extends JDialog{
 	btnGuardar = new JButton("Guardar");
 
 	//Se crean los JLabels para indicar el nombre de los parámetros
-	lblID = new JLabel("ID de Marca:");
-	lblNombre = new JLabel("Nombre:");
-	lblDatos = new JLabel("Datos de Proveedor:");
+	LabelDefault lblID = new LabelDefault("ID de Marca:");
+	LabelDefault lblNombre = new LabelDefault("Nombre:");
+	LabelDefault lblDatos = new LabelDefault("Datos de Proveedor:");
 
 	//Se establecen las dimenciones y la ubicación dentro del JDialog de los elementos
-	lblID.setBounds(5, 5, 70, 10);
+	lblID.setBounds(5, 7, 130, 15);
 	txtIdMarca.setBounds(140, 3, 100, 20);
-	lblNombre.setBounds(5, 30, 50, 15);
+	lblNombre.setBounds(5, 32, 130, 15);
         txtNombre.setBounds(140, 30, 100, 20);
-	lblDatos.setBounds(5, 57, 130, 15);
+	lblDatos.setBounds(5, 62, 130, 15);
 	txtDatosProveedor.setBounds(140, 57, 100, 20);
 	btnGuardar.setBounds(60, 84, 90, 30);
 	btnSalir.setBounds(160, 84, 90, 30);
+        
+        CharLimit clIdMarca = new CharLimit(txtIdMarca, 15, CharLimit.SOLO_NUMEROS);
+        CharLimit clNombre = new CharLimit(txtNombre, 35);
 
         this.dalMarcas = marcas; //Se declara un objeto de tipoGuardaMarca para hacer referencia
 
 	//Se le agregan los manejadores a los elementos
-	txtIdMarca.addKeyListener(new EventosMarcas(this));
 	btnGuardar.addActionListener(new EventosMarcas(this));
 	btnSalir.addActionListener(new EventosMarcas(this));
 
@@ -107,30 +108,6 @@ public class JDialogMarcas extends JDialog{
 
     public void setBtnGuardar(JButton btnGuardar) {
         this.btnGuardar = btnGuardar;
-    }
-
-    public JLabel getLblID() {
-        return lblID;
-    }
-
-    public void setLblID(JLabel lblID) {
-        this.lblID = lblID;
-    }
-
-    public JLabel getLblNombre() {
-        return lblNombre;
-    }
-
-    public void setLblNombre(JLabel lblNombre) {
-        this.lblNombre = lblNombre;
-    }
-
-    public JLabel getLblDatos() {
-        return lblDatos;
-    }
-
-    public void setLblDatos(JLabel lblDatos) {
-        this.lblDatos = lblDatos;
     }
 
     public GuardaMarca getDalMarcas() {

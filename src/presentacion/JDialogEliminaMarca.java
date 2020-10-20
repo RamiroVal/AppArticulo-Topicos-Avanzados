@@ -1,9 +1,10 @@
 package presentacion;
 
+import LibTexto.LabelDefault;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 
 import persistencia.GuardaMarca;
 import persistencia.ManejaTablaH;
@@ -12,7 +13,7 @@ import negocio.EventosEliminaMarca;
 public class JDialogEliminaMarca extends JDialog{
 	
     private JComboBox cmbMarcas;
-    private JLabel lblIdMarca, lblNombre, lblDatosProveedor, lblMarcasUso;
+    private LabelDefault lblIdMarca, lblNombre, lblDatosProveedor, lblMarcasUso;
     private JButton btnEliminar, btnSalir;
 	
     public JDialogEliminaMarca(Menu frame, GuardaMarca gMarca, ManejaTablaH Tabla) {
@@ -25,16 +26,16 @@ public class JDialogEliminaMarca extends JDialog{
 	String[][] datosMarcas = gMarca.getTabla();
 	int veces = Tabla.getUsoMarca(Marcas[0]);
 		
-	JLabel seleccion = new JLabel("Seleccione la marca:");
-	JLabel id = new JLabel("Id:");
-	JLabel nombre = new JLabel("Nombre:");
-	JLabel datosProveedor = new JLabel("Datos generales:");
-	JLabel marcasUso = new JLabel("Artículos:");
+	LabelDefault seleccion = new LabelDefault("Seleccione la marca:");
+	LabelDefault id = new LabelDefault("Id:");
+	LabelDefault nombre = new LabelDefault("Nombre:");
+	LabelDefault datosProveedor = new LabelDefault("Datos generales:");
+	LabelDefault marcasUso = new LabelDefault("Artículos:");
 
-	lblIdMarca = new JLabel(datosMarcas[0][0]);
-	lblNombre = new JLabel(datosMarcas[0][1]);
-	lblDatosProveedor = new JLabel(datosMarcas[0][2]);
-	lblMarcasUso = new JLabel(Integer.toString(veces));
+	lblIdMarca = new LabelDefault(datosMarcas[0][0]);
+	lblNombre = new LabelDefault(datosMarcas[0][1]);
+	lblDatosProveedor = new LabelDefault(datosMarcas[0][2]);
+	lblMarcasUso = new LabelDefault(Integer.toString(veces));
 		
 	cmbMarcas = new JComboBox(Marcas);
 		

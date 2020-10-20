@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JOptionPane;
@@ -13,7 +12,7 @@ import javax.swing.border.LineBorder;
 import presentacion.JDialogMarcas;
 
 //Clase manejadora de eventos del JDialogMarcas
-public class EventosMarcas extends KeyAdapter implements ActionListener{
+public class EventosMarcas implements ActionListener{
 	
     private JDialogMarcas dialog;
 	
@@ -49,28 +48,20 @@ public class EventosMarcas extends KeyAdapter implements ActionListener{
 				dialog.setTxtDatosProveedor(""); //Limpia el txtDatosProveedor
 				dialog.setTxtIdMarca(""); //Limpia el txtIdMarca
 				dialog.setTxtNombre(""); //Limpia el txtNombre
+                                dialog.getTxtNombre().setBorder(new LineBorder(Color.BLACK)); //Establece color negro al borde del txtNombre
+                                dialog.getTxtIdMarca().setBorder(new LineBorder(Color.BLACK)); //Establece color negro al borde del txtIdMarca
+                                dialog.getTxtDatosProveedor().setBorder(new LineBorder(Color.BLACK)); //Establece color negro al borde del txtDatosProveedor
                             }
 			}
                     }catch(Exception error) { //Si no se puede cumplir lo que se hizo en el try
                         JOptionPane.showMessageDialog(dialog, "Error", "Error", JOptionPane.ERROR_MESSAGE); //Muestra un mensaje de error
                     }
         }
-		
+
 	if (e.getActionCommand().equals("Salir")) { //Si el usuario preciona el boton btnSalir
             dialog.dispose(); //Cierra el JDialog
 	}
-		
-    }
-	
-    //Comprueba que lo que se escriba en el JTextField asignado sean sólo números
-    public void keyTyped(KeyEvent e) {
-        if (!Character.isDigit(e.getKeyChar())) {
-            e.consume();
-            Toolkit.getDefaultToolkit().beep();
-            dialog.getLblID().setForeground(Color.RED);
-	}else {
-            dialog.getLblID().setForeground(Color.BLACK);
-	}
+
     }
 
 }

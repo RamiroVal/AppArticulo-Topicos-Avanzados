@@ -9,6 +9,8 @@ import presentacion.*;
 import persistencia.ManejaTablaH;
 import persistencia.GuardaMarca;
 
+import LibTabla.ConsultaTablas;
+
 //Clase que se encarga de manejar los eventos de la clase Menu
 public class EventosMenu implements ActionListener{
 	
@@ -43,8 +45,10 @@ public class EventosMenu implements ActionListener{
 	}
 		
 	if (evento.equals("Inventario Total")) { //Si la opción seleccionada fue la de Inventario Total
-            JDialogInventario inventario  = new JDialogInventario(frame, tabla); //Se crea un objeto de tipo JDialogInventario
-            inventario.setVisible(true); //Se muestra el JDialog al usuario
+            String[] columnasNombre = {"Clave", "Nombre", "Marca", "Existencia", "Precio"}; //Arreglo para poner los nombres de las columnas de una JTable
+            String[][] datos = tabla.getTabla(); //Arreglo donde se guardan los daatos de la tabla hash
+            ConsultaTablas inventario = new ConsultaTablas(frame, "Inventario Total", columnasNombre, datos); //Creacion de objeto de la libreria Libreria_AppInventario, muestra los datos que se le envían en una JTable
+            inventario.setVisible(true); //Lo muestra al usuario
 	}
 		
 	if (evento.equals("Marcas")) { //Si la opción que se seleccionó fue la de Marcas
@@ -63,9 +67,11 @@ public class EventosMenu implements ActionListener{
 	}
 		
 	if (evento.equals("Consulta Marcas")) { //Si la opción seleccionada fue la de Consulta Marcas
-            JTableConsultaMarcas marcas = new JTableConsultaMarcas(frame, marca); //Crea un objeto de tipo JTableConsultaMarcas
+            String[] columnasNombre = {"ID Marca", "Nombre", "Datos Proveedor"}; //Arreglo donde estan los nombres de las columnas
+            String[][] datos = marca.getTabla(); //Matríz donde se se guardan las marcas
+            ConsultaTablas marcas = new ConsultaTablas(frame, "Consulta Marcas", columnasNombre, datos); //Declaracion me objeto de la librería Libreria_AppInventario para crear tablas por un JDialog
             marcas.setVisible(true); //Lo muestra al usuario
-			
+	
 	}
         
         if (evento.equals("Cambiar Existencia")) {

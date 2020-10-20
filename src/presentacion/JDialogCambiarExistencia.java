@@ -1,10 +1,11 @@
 package presentacion;
 
+import LibTexto.*;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -16,7 +17,7 @@ public class JDialogCambiarExistencia extends JDialog {
     private JButton btnActualizar, btnSalir;
     private JTextField txtCambios;
     private JComboBox cmbArticulos;
-    private JLabel lblExistencia, lblMarca, lblClave;
+    private LabelDefault lblExistencia, lblMarca, lblClave;
 	
     public JDialogCambiarExistencia(Menu f, ManejaTablaH mArticulos) {
         super(f, "Cambiar existencia", true);
@@ -28,35 +29,37 @@ public class JDialogCambiarExistencia extends JDialog {
 	String[] articulos = mArticulos.regresaNombre();
 	String[][] datos = mArticulos.getTabla();
 		
-	JLabel lblMarca = new JLabel("Seleccione el artículo:");
+	LabelDefault lblMarca = new LabelDefault("Seleccione el artículo:");
 	lblMarca.setBounds(5, 5, 130, 15);
 		
 	cmbArticulos = new JComboBox(articulos);
-	cmbArticulos.setBounds(145, 1, 120, 25);
+	cmbArticulos.setBounds(160, 1, 120, 25);
 		
-	JLabel lblexistencia = new JLabel("Existencia del artículo:");
-	lblexistencia.setBounds(5, 35, 130, 15);
+	LabelDefault lblexistencia = new LabelDefault("Existencia del artículo:");
+	lblexistencia.setBounds(5, 35, 150, 15);
 		
-	lblExistencia = new JLabel(datos[0][3]);
-	lblExistencia.setBounds(145, 35, 100, 15);
+	lblExistencia = new LabelDefault(datos[0][3]);
+	lblExistencia.setBounds(160, 35, 100, 15);
 		
-	JLabel lblmarca = new JLabel("Marca:");
+	LabelDefault lblmarca = new LabelDefault("Marca:");
 	lblmarca.setBounds(5, 65, 120, 15);
 		
-	this.lblMarca = new JLabel(datos[0][2]);
-	this.lblMarca.setBounds(145, 65, 120, 15);
+	this.lblMarca = new LabelDefault(datos[0][2]);
+	this.lblMarca.setBounds(160, 65, 120, 15);
 		
-	JLabel lblclave = new JLabel("Clave:");
+	LabelDefault lblclave = new LabelDefault("Clave:");
 	lblclave.setBounds(5, 95, 120, 15);
 		
-	lblClave = new JLabel(datos[0][0]);
-	lblClave.setBounds(145, 95, 120, 15);
+	lblClave = new LabelDefault(datos[0][0]);
+	lblClave.setBounds(160, 95, 120, 15);
 		
-	JLabel lblCambios = new JLabel("Ingrese existencia:");
-	lblCambios.setBounds(5, 125, 120, 15);
+	LabelDefault lblCambios = new LabelDefault("Ingrese existencia:");
+	lblCambios.setBounds(5, 127, 120, 15);
 		
         txtCambios = new JTextField();
-	txtCambios.setBounds(145, 123, 70, 23);
+	txtCambios.setBounds(160, 123, 70, 23);
+        
+        CharLimit clCambios = new CharLimit(txtCambios, 5, CharLimit.SOLO_NUMEROS);
 		
 	btnActualizar = new JButton("Actualizar");
 	btnActualizar.setBounds(40, 170, 100, 30);
@@ -98,18 +101,6 @@ public class JDialogCambiarExistencia extends JDialog {
             
     public JComboBox getCmbArticulos() {
 	return cmbArticulos;
-    }
-	
-    public JLabel getLblExistencia() {
-	return lblExistencia;
-    }
-	
-    public JLabel getLblMarca() {
-	return lblMarca;
-    }
-	
-    public JLabel getLblClave() {
-	return lblClave;
     }
 	
     public void setTxtCambios(String s) {

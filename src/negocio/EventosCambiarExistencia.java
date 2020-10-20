@@ -53,6 +53,7 @@ public class EventosCambiarExistencia implements ActionListener, ItemListener{
 		datos = tabla.getTabla(); //Actualiza la tabla con todos los artículos
                 dialog.setTxtCambios(""); //Limpia el JTextField
 		dialog.setLblExistencias(datos[index][3]); //Establece la Existencai del nombre del artículo que fue seleccionado
+                dialog.getTxtCambios().setBorder(new LineBorder(Color.BLACK)); //Cambia el borde del txtCambios a negro
             }catch(Exception ex) {
 		dialog.getTxtCambios().setBorder(new LineBorder(Color.red)); //Colorea el contorno del txtCambios a rojo, ya que se encontraba vacío
 		JOptionPane.showMessageDialog(dialog, "Campo vacío", "Error", JOptionPane.ERROR_MESSAGE);

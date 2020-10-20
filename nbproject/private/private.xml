@@ -3,21 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/JDialogInventario.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/Menu.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/JDialogAltas.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/EventosAltas.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/GuardaMarca.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/EventosMenu.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/Marca.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/EventosXArticulos.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/ConsultaXArticulo.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/JTableConsultaMarcas.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/Articulo.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/EventosMarcas.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/Principal.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/ManejaTablaH.java</file>
-            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/codigo/JDialogMarcas.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/negocio/EventosXArticulos.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/negocio/EventosAltas.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/negocio/EventosCambiarExistencia.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/presentacion/JTableConsultaMarcas.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/negocio/EventosMarcas.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/presentacion/JDialogEliminaMarca.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/persistencia/GuardaMarca.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/negocio/EventosMenu.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/presentacion/ConsultaXArticulo.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/negocio/EventosEliminaMarca.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/presentacion/JDialogMarcas.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/persistencia/Articulo.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/persistencia/ManejaTablaH.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/presentacion/Menu.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/main/Principal.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/presentacion/JDialogCambiarExistencia.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/presentacion/JDialogInventario.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/persistencia/Marca.java</file>
+            <file>file:/C:/Users/jesus/OneDrive/Documentos/NetBeansProjects/Proyecto%20Individual/src/presentacion/JDialogAltas.java</file>
         </group>
     </open-files>
 </project-private>
