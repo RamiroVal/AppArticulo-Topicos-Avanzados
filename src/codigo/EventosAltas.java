@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -12,15 +14,16 @@ import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 
 
-public class EventosAltas extends KeyAdapter implements ActionListener{
+public class EventosAltas extends KeyAdapter implements ActionListener, ItemListener{
 	
     //Declaracion de elementos
     private JDialogAltas dialog;
+    private String selec;
 	
     //Clase Constructora
     EventosAltas(JDialogAltas dialog){
         this.dialog = dialog;
-		
+        selec = "No";
     }
 	
     //Método manejador de eventos de teclas
@@ -30,10 +33,8 @@ public class EventosAltas extends KeyAdapter implements ActionListener{
             if (Character.isAlphabetic(e.getKeyChar()) || Character.isWhitespace(e.getKeyChar()) || Character.isLetter(e.getKeyChar())) { //Si lo que se escribe es un caracter alfabético, espacio en blanco y letra
                 e.consume(); //Se ignora
                 Toolkit.getDefaultToolkit().beep(); //Envía un sonido de atención
-                dialog.setLblError("Sólo números"); //Muestra un JLabel para indicarle al usuario que sólo se permiten números
                 dialog.getTxtCodigo().setBorder(new LineBorder(Color.RED)); //Colorea el borde del JTextField de color rojo
             }else { //Si no
-                dialog.setLblError(""); //Mantiene u oculta el JLabel que indica al usuario que sólo se permiten números
                 dialog.getTxtCodigo().setBorder(new LineBorder(null)); //Restaura el color del JLabel txtCodigo
             }
 
@@ -47,10 +48,8 @@ public class EventosAltas extends KeyAdapter implements ActionListener{
             if (!Character.isDigit(e.getKeyChar())) { //Si lo que se ingresa no es un dígito
                 e.consume(); //Se ignora
                 Toolkit.getDefaultToolkit().beep(); //Se envía un sonido de atención
-		dialog.setLblError("Sólo números"); //Muestra un JLabel para indicar al usuario que sólo se permiten números
 		dialog.getTxtExistencia().setBorder(new LineBorder(Color.RED)); //Colorea el borde del JTextField txtExistencia de color rojo
             }else { //Si no
-		dialog.setLblError(""); //Mantiene u oculta el JLabel que indica al usuario que sólo se permiten números
 		dialog.getTxtExistencia().setBorder(new LineBorder(null)); //Restaura el color del JLabel txtExistencia
             }
 	}
@@ -59,24 +58,12 @@ public class EventosAltas extends KeyAdapter implements ActionListener{
             if (Character.isAlphabetic(e.getKeyChar()) || Character.isWhitespace(e.getKeyChar()) || Character.isLetter(e.getKeyChar())) { //Si lo que se escribe es un caracter alfabético, espacio en blanco y letra
                 e.consume(); //Se ignora
 		Toolkit.getDefaultToolkit().beep(); //Se envía un sonido de atención
-		dialog.setLblError("Sólo números"); //Muestra un JLabel para indicar al usuario que sólo se permiten números
 		dialog.getTxtPrecio().setBorder(new LineBorder(Color.RED)); //Colorea el borde del JTextField txtPrecio de color rojo
             }else { //Si no
-                dialog.setLblError(""); //Mantiene u oculta el JLabel que indica al usuario que sólo se permiten números
 		dialog.getTxtPrecio().setBorder(new LineBorder(null)); //Restaura el color del JLabel txtPrecio
             }
 	}
 
-    }
-	
-    //Método que sirve para comprobar si una clave es repetida o no
-    public boolean esRepetido(int clave) {
-        if (dialog.getManejaTabla().getHtTabla().containsKey(clave)) {
-            return true;
-	}else {
-            return false;
-	}
-		
     }
 	
     @Override
@@ -94,11 +81,11 @@ public class EventosAltas extends KeyAdapter implements ActionListener{
                     marca = dialog.getCmbMarcar().getSelectedItem().toString().toUpperCase(); //Establece a marca el string que el usuario ingresó al txtMarca y lo convierte a mayúsculas
                     existencia = Integer.parseInt(dialog.getTxtExistencia().getText()); //Establece a existencia el valor que el usuario ingresó a txtExistencia
                     precio = Double.parseDouble(dialog.getTxtPrecio().getText()); //Establece a precio el valor que el usuario ingresó a txtPrecio
-                    if (dialog.getManejaTabla().getHtTabla().containsKey(clave)) { //Si la clave que se ingresó ya existía en la hashtable
+                    if (dialog.getManejaTabla().esRepetido(clave)) { //Si la clave que se ingresó ya existía en la hashtable
                         JOptionPane.showMessageDialog(dialog, "Clave existente", "Error", JOptionPane.ERROR_MESSAGE); //Muestra un mensaje de error al usuario
                     }else { //Si no
                         JOptionPane.showMessageDialog(dialog, "Artículo " + dialog.getTxtDescripcion().getText() + " guardado", "Confirmación",JOptionPane.INFORMATION_MESSAGE); //Muestra un mensaje de confirmación al usuario
-                        dialog.getManejaTabla().agregaArticulo(clave, nombre, marca, existencia, precio); //Hace referencia al método para agregaArticulo a través del JDialogAltas
+                        dialog.getManejaTabla().agregaArticulo(clave, nombre, marca, existencia, precio, selec); //Hace referencia al método para agregaArticulo a través del JDialogAltas
 			dialog.setTxtCodigo(""); //Limpia el txtCodigo
 			dialog.setTxtDescripcion(""); //Limpia el txtDescripcion
 			dialog.setTxtExistencia(""); //Limpia el txtExistencia
@@ -116,5 +103,15 @@ public class EventosAltas extends KeyAdapter implements ActionListener{
 	}
 		
     }
-	
+    
+    //Maneja los eventos del JCheckBox
+    @Override
+    public void itemStateChanged(ItemEvent e){
+        if (dialog.getChkSiempreExistencia().isSelected()){ //Si esta seleccionado el JCheckBox
+            selec = "Si";
+        }else{
+            selec = "No";
+        }
+    }
+   
 }

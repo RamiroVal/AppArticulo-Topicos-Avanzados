@@ -6,13 +6,15 @@ public class Articulo {
     private int existencia;
     private String nombre, marca;
     private double precio;
+    private String siempreExistencia;
 
     //Método Constructor
-    public Articulo(int existencia, String nombre, String marca, double precio) {
+    Articulo(int existencia, String nombre, String marca, double precio, String siempreExistencia) {
         this.existencia = existencia;
 	this.nombre = nombre;
 	this.marca = marca;
 	this.precio = precio;
+        this.siempreExistencia = siempreExistencia;
     }
 
     //toString
@@ -25,9 +27,17 @@ public class Articulo {
     public int getExistencia() {
         return existencia;
     }
-
-    public void setCantidad(int cantidad) {
+    
+    public void setExistencia(int cantidad){
         this.existencia = cantidad;
+    }
+    
+    public String getSiempreExistencia(){
+        return siempreExistencia;
+    }
+    
+    public void setSiempreExistencia(String a){
+        siempreExistencia = a;
     }
 
     public String getNombre() {

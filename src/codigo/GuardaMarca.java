@@ -2,13 +2,11 @@ package codigo;
 
 public class GuardaMarca {
 	
-    private JDialogMarcas dialog;
     private Marca[] arregloMarca;
     private int posicion = 0;
 	
     //Método constructor
-    GuardaMarca(){
-        this.dialog = dialog;
+    public GuardaMarca(){
 	arregloMarca = new Marca[10];
     }
 	
@@ -22,6 +20,28 @@ public class GuardaMarca {
             salir = true;
 	}
             return salir;
+    }
+    
+    //Método para eliminar una marca
+    public boolean eliminaMarca(String nombre) {
+        String[][] tabla = getTabla();
+	int longitud = posicion;
+	int pos = 0;
+	boolean elimino = false;
+		
+	for (int i = 0; i < longitud; i++) {
+            if (arregloMarca[i].getNombre().equalsIgnoreCase(nombre)) {
+                posicion -= 1;
+		elimino = true;
+                continue;
+            }else {
+		arregloMarca[pos].setDatosProveedor(tabla[i][2]);
+		arregloMarca[pos].setNombre(tabla[i][1]);
+		arregloMarca[pos].setIdMarca(Integer.parseInt(tabla[i][0]));
+		pos++;
+            }
+	}
+	return elimino;
     }
 	
     //Método que comprueba si la "memoria" de artículos está llena
@@ -52,6 +72,21 @@ public class GuardaMarca {
             nombres[i] = arregloMarca[i].getNombre();
 	}
         return nombres;
+    }
+    
+    //Método que regresa los atributos de una marca a través de su nombre
+    public String[] getAtributosNombre(String nombre) {
+        String[] atributos = new String[3];
+	String[][] marcas = getTabla();
+	for (int i = 0; i < posicion; i++) {
+            if (marcas[i][1].equals(nombre)) {
+                atributos[0] = marcas[i][0];
+		atributos[1] = marcas[i][1];
+		atributos[2] = marcas[i][2];
+            }
+	}
+		
+	return atributos;
     }
 	
     //Método que regresa todos los atributos de un índice determinado

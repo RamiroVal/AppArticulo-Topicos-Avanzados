@@ -13,7 +13,7 @@ public class ConsultaXArticulo extends JDialog{
     //Declaracion de elementos que usará el JDialog
     private JComboBox comboBox;
     private ManejaTablaH tabla;
-    private JLabel lblClave, lblNombre,lblExistencia, lblPrecio, lblMarca;
+    private JLabel lblClave, lblNombre,lblExistencia, lblPrecio, lblMarca, lblSiempreExistencia;
 	
     //Constructor
     public ConsultaXArticulo(Menu f, ManejaTablaH tabla) {
@@ -34,6 +34,7 @@ public class ConsultaXArticulo extends JDialog{
 	JLabel existencia = new JLabel("Existencia:");
 	JLabel precio = new JLabel("Precio:");
 	JLabel marca = new JLabel("Marca:");
+        JLabel siempreExistencia = new JLabel("Siempre en existencia");
         
         //Reciben los datos del Articulo que esta por defecto cuando se abre el JDialog
 	lblClave = new JLabel(datos[0][0]);
@@ -41,7 +42,8 @@ public class ConsultaXArticulo extends JDialog{
 	lblExistencia = new JLabel(datos[0][2]);
 	lblPrecio = new JLabel(datos[0][3]);
 	lblMarca = new JLabel(datos[0][4]);
-		
+        lblSiempreExistencia = new JLabel(datos[0][5]);
+
 	//Establecimiento de su locación y sus dimenciones
 	comboBox.setBounds(5,5,100,20);
 	lblClave.setBounds(100,35,100,15);
@@ -50,11 +52,13 @@ public class ConsultaXArticulo extends JDialog{
 	existencia.setBounds(5,85,90,15);
 	precio.setBounds(5, 110, 90, 15);
 	marca.setBounds(5, 135, 90, 15);
+        siempreExistencia.setBounds(5, 160, 150, 15);
 	lblNombre.setBounds(100,60,100,15);
 	lblExistencia.setBounds(100, 85, 100,15);
 	lblPrecio.setBounds(100, 110, 100, 15);
 	lblMarca.setBounds(100, 135, 100, 15);
-		
+        lblSiempreExistencia.setBounds(160, 160, 100, 15);
+
 	this.tabla = tabla; //Declaración de un objeto ManejaTablaH que servirá para hacer referencia en la clase de manejo de eventos
 		
 	EventosXArticulos manejador = new EventosXArticulos(this, this.tabla); //Creación del objeto que manejará los eventos, recibe como parámetros esta clase y el objeto ManejaTablaH
@@ -72,16 +76,22 @@ public class ConsultaXArticulo extends JDialog{
 	add(lblPrecio);
 	add(marca);
 	add(lblMarca);
+        add(siempreExistencia);
+        add(lblSiempreExistencia);
 	
     }
 
     //Getters y Setters
+    public JLabel getLblSiempreExistencia(){
+        return lblSiempreExistencia;
+    }
+    
+    public void setLblSiempreExistencia(String texto){
+        lblSiempreExistencia.setText(texto);
+    }
+    
     public JComboBox getComboBox() {
         return comboBox;
-    }
-
-    public void setComboBox(JComboBox comboBox) {
-        this.comboBox = comboBox;
     }
 
     public JLabel getLblClave() {

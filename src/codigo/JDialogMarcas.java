@@ -63,7 +63,6 @@ public class JDialogMarcas extends JDialog{
 	add(btnGuardar);
 	add(btnSalir);
 		
-		
     }
 
     //Métodos Getters y Setters
@@ -138,6 +137,5 @@ public class JDialogMarcas extends JDialog{
     public void setDalMarcas(GuardaMarca dalMarcas) {
         this.dalMarcas = dalMarcas;
     }
-
 
 }

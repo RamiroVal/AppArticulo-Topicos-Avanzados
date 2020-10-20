@@ -63,6 +63,25 @@ public class EventosMenu implements ActionListener{
             marcas.setVisible(true); //Lo muestra al usuario
 			
 	}
+        
+        if (evento.equals("Cambiar Existencia")) {
+            if (marca.getNombreMarcas().length == 0) {
+                JOptionPane.showMessageDialog(frame, "No se han agregado artículos", "Error", JOptionPane.ERROR_MESSAGE);
+            }else {
+		JDialogCambiarExistencia existencia = new JDialogCambiarExistencia(frame, tabla);
+		existencia.setVisible(true);
+            }
+			
+	}
+        
+        if (evento.equals("Eliminar Marca")){
+            if (marca.getNombreMarcas().length == 0) {
+                JOptionPane.showMessageDialog(frame, "No se han agregado marcas", "Error", JOptionPane.ERROR_MESSAGE);
+            }else {
+		JDialogEliminaMarca eliminar = new JDialogEliminaMarca(frame, marca, tabla);
+		eliminar.setVisible(true);
+            }
+	}
 		
     }
 	

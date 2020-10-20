@@ -17,25 +17,12 @@ public class EventosXArticulos implements ItemListener{
 	tabla = t;
     }
 	
-    //Método que sirve para ubicar los atributos por medio del nombre de un artículo
-    public int regresaIndex(String nombre) {
-        int index = 0;
-	String[][] tabla1 = tabla.getTabla();
-        for (int i=0;i<tabla.getHtTabla().size();i++) {
-            if (tabla1[i][1].equalsIgnoreCase(nombre)) {
-                index = i;
-		break;
-            }
-	}
-	return index;
-    }
-	
     //Método para el manejo de eventos de items
     @Override
     public void itemStateChanged(ItemEvent e) {
 		
         if (e.getSource() == frame.getComboBox()) {
-            int index = regresaIndex(frame.getComboBox().getSelectedItem().toString()); //Obtiene el índice de dónde está guardado a través del nombre de un artículo
+            int index = tabla.regresaIndex(frame.getComboBox().getSelectedItem().toString()); //Obtiene el índice de dónde está guardado a través del nombre de un artículo
             String[][] datos = tabla.getTabla(); //Declaración de String con los elementos de la tabla Hash
             frame.setLblClave(datos[index][0]); //Establece la clave del nombre que fue seleccionado
             frame.setLblNombre(datos[index][1]); //Establece el nombre del nombre que fue seleccionado
