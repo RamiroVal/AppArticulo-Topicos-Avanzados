@@ -1,4 +1,6 @@
-package codigo;
+package main;
+
+import presentacion.Menu;
 
 //Clase principal
 public class Principal {

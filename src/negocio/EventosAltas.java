@@ -1,4 +1,4 @@
-package codigo;
+package negocio;
 
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 
+import presentacion.JDialogAltas;
 
 public class EventosAltas extends KeyAdapter implements ActionListener, ItemListener{
 	
@@ -21,7 +22,7 @@ public class EventosAltas extends KeyAdapter implements ActionListener, ItemList
     private String selec;
 	
     //Clase Constructora
-    EventosAltas(JDialogAltas dialog){
+    public EventosAltas(JDialogAltas dialog){
         this.dialog = dialog;
         selec = "No";
     }

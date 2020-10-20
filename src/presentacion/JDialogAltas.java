@@ -1,4 +1,4 @@
-package codigo;
+package presentacion;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -10,6 +10,10 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import persistencia.ManejaTablaH;
+import persistencia.GuardaMarca;
+import negocio.EventosAltas;
 
 public class JDialogAltas extends JDialog{
 	
@@ -40,7 +44,7 @@ public class JDialogAltas extends JDialog{
 	txtPrecio = new JTextField(8); //Crea un JTextField de longitud de 8
         chkSiempreExistencia = new JCheckBox("Siempre en existencia"); //Se crea un JCheckBox paara indicar si el articulo siempre tiene que estar disponible o no 
 		
-	EventosAltas manejador = new EventosAltas(this);	
+	EventosAltas manejador = new EventosAltas(this);
 	txtCodigo.addKeyListener(manejador); //Agrega un manejador KeyEvent al txtCodigo
 	txtExistencia.addKeyListener(manejador); //Agrega un manejador de eventos de teclado al txtExistencia
 	txtPrecio.addKeyListener(manejador); //Agrega un manejador de eventos de teclado al txtPrecio

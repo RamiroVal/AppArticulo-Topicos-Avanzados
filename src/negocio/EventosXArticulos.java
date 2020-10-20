@@ -1,8 +1,11 @@
-package codigo;
+package negocio;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+
+import presentacion.ConsultaXArticulo;
+import persistencia.ManejaTablaH;
 
 //Clase manejadora de eventos de ConsultaXArticulos
 public class EventosXArticulos implements ItemListener{

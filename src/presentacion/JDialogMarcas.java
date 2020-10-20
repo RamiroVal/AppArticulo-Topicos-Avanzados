@@ -1,4 +1,4 @@
-package codigo;
+package presentacion;
 
 import java.awt.FlowLayout;
 
@@ -7,6 +7,9 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JFrame;
+
+import persistencia.GuardaMarca;
+import negocio.EventosMarcas;
 
 public class JDialogMarcas extends JDialog{
 	

@@ -1,4 +1,4 @@
-package codigo;
+package persistencia;
 
 public class Marca {
 	

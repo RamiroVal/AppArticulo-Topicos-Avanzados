@@ -1,4 +1,4 @@
-package codigo;
+package negocio;
 
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -9,6 +9,8 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
+
+import presentacion.JDialogMarcas;
 
 //Clase manejadora de eventos del JDialogMarcas
 public class EventosMarcas extends KeyAdapter implements ActionListener{

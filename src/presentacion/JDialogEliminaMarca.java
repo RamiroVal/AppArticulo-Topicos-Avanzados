@@ -1,9 +1,13 @@
-package codigo;
+package presentacion;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+
+import persistencia.GuardaMarca;
+import persistencia.ManejaTablaH;
+import negocio.EventosEliminaMarca;
 
 public class JDialogEliminaMarca extends JDialog{
 	

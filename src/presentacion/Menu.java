@@ -1,10 +1,14 @@
-package codigo;
+package presentacion;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+
+import persistencia.ManejaTablaH;
+import persistencia.GuardaMarca;
+import negocio.EventosMenu;
 
 public class Menu extends JFrame {
 	
@@ -14,7 +18,7 @@ public class Menu extends JFrame {
     private ManejaTablaH manejadoraTabla = new ManejaTablaH();
     private GuardaMarca marcas = new GuardaMarca();
 
-    Menu(){
+    public Menu(){
         super("App Inventario"); //Llamada al método constructor de la clase padre y se le da como parámetro "App Inventario"
 	setSize(300,100); //Establece las dimensiones del JFrame
 	setDefaultCloseOperation(EXIT_ON_CLOSE); //Detiene la ejecución cuando el usuario cierra el JFrame

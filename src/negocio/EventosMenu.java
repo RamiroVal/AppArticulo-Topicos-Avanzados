@@ -1,9 +1,13 @@
-package codigo;
+package negocio;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
+
+import presentacion.*;
+import persistencia.ManejaTablaH;
+import persistencia.GuardaMarca;
 
 //Clase que se encarga de manejar los eventos de la clase Menu
 public class EventosMenu implements ActionListener{
@@ -14,7 +18,7 @@ public class EventosMenu implements ActionListener{
     private GuardaMarca marca;
 	
     //Clase constructor
-    EventosMenu(Menu f, ManejaTablaH t, GuardaMarca m){
+    public EventosMenu(Menu f, ManejaTablaH t, GuardaMarca m){
         frame = f;
         tabla = t;
 	marca = m;

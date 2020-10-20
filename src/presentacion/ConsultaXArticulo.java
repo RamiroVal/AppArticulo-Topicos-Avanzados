@@ -1,5 +1,5 @@
 
-package codigo;
+package presentacion;
 
 import java.awt.FlowLayout;
 
@@ -7,6 +7,9 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import persistencia.ManejaTablaH;
+import negocio.EventosXArticulos;
 
 public class ConsultaXArticulo extends JDialog{
 	

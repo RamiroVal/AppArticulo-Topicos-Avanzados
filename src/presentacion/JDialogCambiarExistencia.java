@@ -1,4 +1,4 @@
-package codigo;
+package presentacion;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -7,6 +7,9 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+
+import persistencia.ManejaTablaH;
+import negocio.EventosCambiarExistencia;
 
 public class JDialogCambiarExistencia extends JDialog {
 	
