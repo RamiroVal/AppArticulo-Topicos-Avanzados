@@ -57,11 +57,11 @@ public class EventosMenu implements ActionListener{
 	}
 		
 	if (evento.equals("Consulta X Articulo")) { //Si la opción seleccionada fue la de Consulta X Articulo
-            if (marca.getNombreMarcas().length == 0) { //Comprueba que ya se hayan agregado marcas previamente
-                JOptionPane.showMessageDialog(frame, "Lista de artículos vacías, agregue uno para continuar", "Error", JOptionPane.ERROR_MESSAGE); //Si es así muestra un mensaje de error al usuario
-            }else { //Si no
-		ConsultaXArticulo consultar = new ConsultaXArticulo(frame, tabla); //Crea un objeto de tipo ConsultaXArticulo
+            try {
+                ConsultaXArticulo consultar = new ConsultaXArticulo(frame, tabla); //Crea un objeto de tipo ConsultaXArticulo
 		consultar.setVisible(true); //Muestra el ConsultaXArticulo al usuario
+            }catch(Exception ex) { //Si no
+		JOptionPane.showMessageDialog(frame, "Lista de artículos vacías, agregue uno para continuar", "Error", JOptionPane.ERROR_MESSAGE); //Si es así muestra un mensaje de error al usuario
             }
 			
 	}
@@ -75,11 +75,11 @@ public class EventosMenu implements ActionListener{
 	}
         
         if (evento.equals("Cambiar Existencia")) {
-            if (marca.getNombreMarcas().length == 0) {
-                JOptionPane.showMessageDialog(frame, "No se han agregado artículos", "Error", JOptionPane.ERROR_MESSAGE);
-            }else {
-		JDialogCambiarExistencia existencia = new JDialogCambiarExistencia(frame, tabla);
+            try {
+                JDialogCambiarExistencia existencia = new JDialogCambiarExistencia(frame, tabla);
 		existencia.setVisible(true);
+            }catch(Exception ex) {
+		JOptionPane.showMessageDialog(frame, "No se han agregado artículos", "Error", JOptionPane.ERROR_MESSAGE);
             }
 			
 	}
